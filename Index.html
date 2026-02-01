@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Calculator & Counter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h2>Age Calculator & Counter</h2>
+    <button id="themeToggle">🌙</button>
+  </div>
+  <div id="dayDate" class="day-date"></div>
+
+  <label>Birth Date</label>
+  <input type="date" id="birthDate">
+
+  <label>Birth Time</label>
+  <input type="time" id="birthTime" step="1">
+
+  <label>Time Zone</label>
+  <select id="timezone">
+    <option value="local">Local</option>
+    <option value="UTC">UTC</option>
+    <option value="Asia/Kolkata">India (IST)</option>
+    <option value="America/New_York">New York</option>
+    <option value="Europe/London">London</option>
+    <option value="Asia/Tokyo">Tokyo</option>
+  </select>
+
+  <button id="saveBtn">Save</button>
+  <button id="resetBtn">Reset</button>
+  <div class="clock-controls">
+  <button id="analogBtn">Analog</button>
+  <button id="digitalBtn">Digital</button>
+  <button id="formatToggle">24H</button>
+</div>
+
+<div class="clock analog" id="analogClock">
+  <div class="number" style="--n:1">1</div>
+  <div class="number" style="--n:2">2</div>
+  <div class="number" style="--n:3">3</div>
+  <div class="number" style="--n:4">4</div>
+  <div class="number" style="--n:5">5</div>
+  <div class="number" style="--n:6">6</div>
+  <div class="number" style="--n:7">7</div>
+  <div class="number" style="--n:8">8</div>
+  <div class="number" style="--n:9">9</div>
+  <div class="number" style="--n:10">10</div>
+  <div class="number" style="--n:11">11</div>
+  <div class="number" style="--n:12">12</div>
+
+  <div class="hand hour" id="hourHand"></div>
+  <div class="hand minute" id="minuteHand"></div>
+  <div class="hand second" id="secondHand"></div>
+</div>
+
+<div class="clock digital hidden" id="digitalClock"></div>
+
+  <div class="output">
+    <h3>Age</h3>
+    <p id="ymd"></p>
+    <p id="seconds"></p>
+    <p id="minutes"></p>
+    <p id="hours"></p>
+    <p id="days"></p>
+    <p id="weeks"></p>
+    <p id="months"></p>
+    
+    <h3>Present Day Countdown</h3>
+    <p id="presentCountdown"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

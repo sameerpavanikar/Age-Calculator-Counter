@@ -1,3 +1,4 @@
+
 :root {
   --bg: #f8fafc;
   --card: #ffffff;
@@ -7,7 +8,7 @@
 }
 
 body.dark {
-  --bg: #0f172a;
+  --bg: #071433;
   --card: #020617;
   --text: #ffffff;
   --box: #1e293b;
@@ -41,7 +42,7 @@ body {
 
 h2, h3 {
   color: rgb(169, 224, 17);
-  text-align: center;
+  text-align: left;
 }
 
 label {
@@ -76,10 +77,10 @@ button {
   cursor: pointer;
 }
 
-.output p {
-  text-align: center;
+.output label {
+  text-align: left;
   margin: 6px 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .clock-controls {
@@ -111,6 +112,7 @@ button {
   bottom: 50%;
   transform-origin: bottom;
   transform: translateX(-50%);
+  border-radius: 50%;
 }
 
 .hour {
@@ -126,29 +128,37 @@ button {
 }
 
 .second {
-  width: 2px;
-  height: 100px;
+  width: 3px;
+  height: 90px;
   background: red;
 }
 
-.number {
+.clock span {
   position: absolute;
   inset: 10px;
   text-align: center;
-  transform: rotate(calc(var(--n) * 30deg));
+  transform: rotate(calc(30deg * var(--i)));
 }
 
-.number::after {
-  content: attr(style);
+.clock span b{
+  transform: rotate(calc(-30deg * var(--i)));
+  display: inline-block;
+}
+
+.clock::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #dc2626;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .number {
   font-size: 14px;
-}
-
-.number span {
-  display: block;
-  transform: rotate(calc(var(--n) * -30deg));
 }
 
 /* DIGITAL CLOCK */

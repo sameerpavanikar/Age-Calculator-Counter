@@ -1,3 +1,4 @@
+
 const birthDateInput = document.getElementById("birthDate");
 const birthTimeInput = document.getElementById("birthTime");
 const timezoneSelect = document.getElementById("timezone");
@@ -194,63 +195,6 @@ updateClock();
 let isDragging = false;
 let offsetX = 0;
 let offsetY = 0;
-
-analogClock.style.position = "absolute";
-analogClock.style.cursor = "grab";
-
-analogClock.addEventListener("mousedown", startDrag);
-analogClock.addEventListener("touchstart", startDrag);
-
-document.addEventListener("mousemove", drag);
-document.addEventListener("touchmove", drag);
-
-document.addEventListener("mouseup", stopDrag);
-document.addEventListener("touchend", stopDrag);
-
-function startDrag(e) {
-  isDragging = true;
-  analogClock.style.cursor = "grabbing";
-  const rect = analogClock.getBoundingClientRect();
-  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-  offsetX = clientX - rect.left;
-  offsetY = clientY - rect.top;
-}
-
-function drag(e) {
-  if (!isDragging) return;
-  const x = e.touches ? e.touches[0].clientX : e.clientX;
-  const y = e.touches ? e.touches[0].clientY : e.clientY;
-
-  analogClock.style.left = `${x - offsetX}px`;
-  analogClock.style.top = `${y - offsetY}px`;
-}
-
-function stopDrag() {
-  isDragging = false;
-  analogClock.style.cursor = "grab";
-}
-
-const dayDateEl = document.getElementById("dayDate");
-const greetingEl = document.getElementById("greeting");
-
-function updateDayDate() {
-  const tz = timezoneSelect.value === "local" ? undefined : timezoneSelect.value;
-
-  const now = new Date();
-  const formatter = new Intl.DateTimeFormat("en-US", {
-    timeZone: tz,
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  });
-
-  dayDateEl.textContent = formatter.format(now);
-}
-
-updateDayDate();
-setInterval(updateDayDate, 60 * 1000); // refresh every minute 
 
 /* ---------- RESET BUTTON ---------- */
 const resetBtn = document.getElementById("resetBtn");
